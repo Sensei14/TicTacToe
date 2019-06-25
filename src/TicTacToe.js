@@ -21,7 +21,6 @@ class TicTacToe extends Component {
   };
 
   checkWinner = (squares, moves) => {
-    console.log(moves);
     const lines = this.state.lines;
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
@@ -72,261 +71,284 @@ class TicTacToe extends Component {
           moves
         });
       }
-    }
-    if (squares[0] === "X" && squares[1] === "X" && squares[2] === null) {
-      squares[2] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[1] === "X" &&
-      squares[2] === "X" &&
-      squares[0] === null
-    ) {
-      squares[0] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[0] === "X" &&
-      squares[3] === "X" &&
-      squares[6] === null
-    ) {
-      squares[6] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[0] === "X" &&
-      squares[4] === "X" &&
-      squares[8] === null
-    ) {
-      squares[8] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[1] === "X" &&
-      squares[4] === "X" &&
-      squares[7] === null
-    ) {
-      squares[7] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[3] === "X" &&
-      squares[4] === "X" &&
-      squares[5] === null
-    ) {
-      squares[5] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[4] === "X" &&
-      squares[5] === "X" &&
-      squares[3] === null
-    ) {
-      squares[3] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[4] === "X" &&
-      squares[2] === "X" &&
-      squares[6] === null
-    ) {
-      squares[6] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[2] === "X" &&
-      squares[5] === "X" &&
-      squares[8] === null
-    ) {
-      squares[8] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[3] === "X" &&
-      squares[6] === "X" &&
-      squares[0] === null
-    ) {
-      squares[0] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[4] === "X" &&
-      squares[7] === "X" &&
-      squares[1] === null
-    ) {
-      squares[1] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[4] === "X" &&
-      squares[8] === "X" &&
-      squares[0] === null
-    ) {
-      squares[0] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[4] === "X" &&
-      squares[6] === "X" &&
-      squares[2] === null
-    ) {
-      squares[2] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[6] === "X" &&
-      squares[7] === "X" &&
-      squares[8] === null
-    ) {
-      squares[8] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[7] === "X" &&
-      squares[8] === "X" &&
-      squares[6] === null
-    ) {
-      squares[6] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[5] === "X" &&
-      squares[8] === "X" &&
-      squares[2] === null
-    ) {
-      squares[2] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[0] === "X" &&
-      squares[6] === "X" &&
-      squares[3] === null
-    ) {
-      squares[3] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[1] === "X" &&
-      squares[7] === "X" &&
-      squares[4] === null
-    ) {
-      squares[4] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[2] === "X" &&
-      squares[8] === "X" &&
-      squares[5] === null
-    ) {
-      squares[5] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[0] === "X" &&
-      squares[2] === "X" &&
-      squares[1] === null
-    ) {
-      squares[1] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[3] === "X" &&
-      squares[5] === "X" &&
-      squares[4] === null
-    ) {
-      squares[4] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (
-      squares[6] === "X" &&
-      squares[8] === "X" &&
-      squares[7] === null
-    ) {
-      squares[7] = "O";
-      moves += 1;
-      this.setState({
-        squares,
-        moves
-      });
-    } else if (moves > 2 && moves <= 7) {
-      while (true) {
-        let r = Math.floor(Math.random() * 9);
-        if (squares[r] === null) {
-          squares[r] = "O";
+    } else {
+      if (squares[0] === "X" && squares[1] === "X" && squares[2] === null) {
+        squares[2] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[1] === "X" &&
+        squares[2] === "X" &&
+        squares[0] === null
+      ) {
+        squares[0] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[0] === "X" &&
+        squares[3] === "X" &&
+        squares[6] === null
+      ) {
+        squares[6] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[0] === "X" &&
+        squares[4] === "X" &&
+        squares[8] === null
+      ) {
+        squares[8] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[1] === "X" &&
+        squares[4] === "X" &&
+        squares[7] === null
+      ) {
+        squares[7] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[3] === "X" &&
+        squares[4] === "X" &&
+        squares[5] === null
+      ) {
+        squares[5] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[4] === "X" &&
+        squares[5] === "X" &&
+        squares[3] === null
+      ) {
+        squares[3] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[4] === "X" &&
+        squares[2] === "X" &&
+        squares[6] === null
+      ) {
+        squares[6] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[2] === "X" &&
+        squares[5] === "X" &&
+        squares[8] === null
+      ) {
+        squares[8] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[3] === "X" &&
+        squares[6] === "X" &&
+        squares[0] === null
+      ) {
+        squares[0] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[4] === "X" &&
+        squares[7] === "X" &&
+        squares[1] === null
+      ) {
+        squares[1] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[4] === "X" &&
+        squares[8] === "X" &&
+        squares[0] === null
+      ) {
+        squares[0] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[4] === "X" &&
+        squares[6] === "X" &&
+        squares[2] === null
+      ) {
+        squares[2] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[6] === "X" &&
+        squares[7] === "X" &&
+        squares[8] === null
+      ) {
+        squares[8] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[7] === "X" &&
+        squares[8] === "X" &&
+        squares[6] === null
+      ) {
+        squares[6] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[5] === "X" &&
+        squares[8] === "X" &&
+        squares[2] === null
+      ) {
+        squares[2] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[0] === "X" &&
+        squares[6] === "X" &&
+        squares[3] === null
+      ) {
+        squares[3] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[1] === "X" &&
+        squares[7] === "X" &&
+        squares[4] === null
+      ) {
+        squares[4] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[2] === "X" &&
+        squares[8] === "X" &&
+        squares[5] === null
+      ) {
+        squares[5] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[0] === "X" &&
+        squares[2] === "X" &&
+        squares[1] === null
+      ) {
+        squares[1] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[3] === "X" &&
+        squares[5] === "X" &&
+        squares[4] === null
+      ) {
+        squares[4] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[6] === "X" &&
+        squares[8] === "X" &&
+        squares[7] === null
+      ) {
+        squares[7] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (moves > 2 && moves <= 7) {
+        if (squares[0] === null && squares[3] === "X") {
+          squares[0] = "O";
           moves += 1;
           this.setState({
             squares,
             moves
           });
-
-          break;
+        } else if (squares[2] === null && squares[5] === "X") {
+          squares[2] = "O";
+          moves += 1;
+          this.setState({
+            squares,
+            moves
+          });
+        } else if (squares[6] === null) {
+          squares[6] = "O";
+          moves += 1;
+          this.setState({
+            squares,
+            moves
+          });
+        } else if (squares[8] === null) {
+          squares[8] = "O";
+          moves += 1;
+          this.setState({
+            squares,
+            moves
+          });
+        } else if (squares[0] === null) {
+          squares[0] = "O";
+          moves += 1;
+          this.setState({
+            squares,
+            moves
+          });
         }
       }
     }
-
     this.checkWinner(squares, moves);
   };
 
