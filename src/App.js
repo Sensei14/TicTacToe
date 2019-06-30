@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       {" "}
-      Kołko i krzyżyk
+      Kołko i krzyżyk v2.0
       <TicTacToe />
     </div>
   );

@@ -80,6 +80,28 @@ class TicTacToe extends Component {
           moves
         });
       } else if (
+        squares[0] === "X" &&
+        squares[8] === "X" &&
+        squares[3] === null
+      ) {
+        squares[3] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
+        squares[2] === "X" &&
+        squares[6] === "X" &&
+        squares[5] === null
+      ) {
+        squares[5] = "O";
+        moves += 1;
+        this.setState({
+          squares,
+          moves
+        });
+      } else if (
         squares[1] === "X" &&
         squares[2] === "X" &&
         squares[0] === null
@@ -346,6 +368,19 @@ class TicTacToe extends Component {
             squares,
             moves
           });
+        } else {
+          while (true) {
+            const r = Math.floor(Math.random() * 9);
+            if (squares[r] === null) {
+              squares[r] = "O";
+              moves += 1;
+              this.setState({
+                squares,
+                moves
+              });
+              break;
+            }
+          }
         }
       }
     }
